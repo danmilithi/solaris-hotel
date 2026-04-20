@@ -48,20 +48,8 @@ O site se adapta para diferentes tamanhos de tela:
 ---
 
 ## 📂 Estrutura do projeto
-solaris
-│
-├── index.html
-├── style.css
-├── script.js
-│
-├── img/
-│ ├── logo
-│ ├── hero-image
-│ ├── suite-solteiro-solaris.png
-│ ├── suite-casal-solaris.png
-│ └── suite-master-solaris.png
-│
-└── README.md
+
+![Print](img/preview-estrutura-projeto.png)
 
 ---
 
