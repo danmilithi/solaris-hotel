@@ -1,0 +1,453 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+    --bg: #f8f4ea;
+    --bg-soft: #fffdf8;
+    --ink: #1f241f;
+    --muted: #5b6158;
+    --brand: #b88446;
+    --brand-deep: #865d2f;
+    --accent: #3e6a5d;
+    --line: #d8ccb7;
+    --card: rgba(255, 252, 245, 0.9);
+    --shadow: 0 18px 42px rgba(65, 46, 24, 0.14);
+    --radius: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 6% 8%, rgba(184, 132, 70, 0.18), transparent 34%),
+        radial-gradient(circle at 88% 3%, rgba(62, 106, 93, 0.2), transparent 30%),
+        linear-gradient(180deg, #f8f4ea 0%, #efe5d0 45%, #f6efdf 100%);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 14px clamp(18px, 4vw, 52px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(104, 73, 44, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(248, 231, 204, 0.3);
+    height: 90px;
+}
+
+header .container-fluid {
+    padding-left: clamp(8px, 1.8vw, 20px) !important;
+    padding-right: clamp(8px, 1.8vw, 20px) !important;
+}
+
+.logo {
+    padding-left: 6px;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    transform: scale(2.0);
+    transform-origin: left center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: clamp(12px, 2.3vw, 30px);
+    align-items: center;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(255, 204, 143, 0.25);
+}
+
+.navbar .nav-link {
+    color: #f8f0e2;
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible {
+    color: #ffcc8f;
+}
+
+.navbar-nav .nav-link.active {
+    color: #ffcc8f;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+.hero {
+    padding-top: clamp(36px, 6vw, 70px);
+}
+
+.hero-container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.hero-container .row {
+    row-gap: clamp(22px, 4vw, 54px);
+}
+
+.hero-card {
+    background: #eee;
+    border: 1px solid rgba(134, 93, 47, 0.24);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    align-self: center;
+    animation: rise 0.8s ease 0.1s both;
+}
+
+.hero-card h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+    margin-bottom: 16px;
+    color: #2f2b23;
+}
+
+.hero-card h2 {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 500;
+    color: var(--muted);
+    max-width: 38ch;
+    margin-bottom: 28px;
+}
+
+.hero-card .btn,
+.reserva-card .btn {
+    border: 0;
+    border-radius: 999px;
+    padding: 13px 28px;
+    background: linear-gradient(120deg, var(--brand) 0%, #d3a066 100%);
+    color: #1f1610;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(184, 132, 70, 0.36);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.hero-card .btn:hover,
+.reserva-card .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 13px 22px rgba(134, 93, 47, 0.32);
+}
+
+.hero-card .btn:focus-visible,
+.reserva-card .btn:focus-visible {
+    box-shadow: 0 0 0 3px rgba(255, 241, 222, 0.72), 0 0 0 6px rgba(184, 132, 70, 0.4);
+}
+
+.hero-image {
+    border-radius: calc(var(--radius) + 6px);
+    overflow: hidden;
+    min-height: 360px;
+    box-shadow: var(--shadow);
+    animation: rise 0.8s ease 0.25s both;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+}
+
+.info {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 42px);
+}
+
+.info > h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+    margin-bottom: 22px;
+    color: #2f2b23;
+    text-align: center;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.info-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 8px;
+}
+
+.info-grid > .col-md-6 {
+    width: 50%;
+    max-width: 50%;
+}
+
+.info-item h3,
+.info-item p {
+    margin: 0;
+    display: block;
+}
+
+.info-item .text {
+   display: flex;
+   flex-direction: column;
+}
+
+.info-item .icon {
+    flex-shrink: 0;
+    color: var(--brand);
+}
+
+.info-item h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.info-item p {
+    color: var(--muted);
+    max-width: 42ch;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.info-item h3 svg {
+    width: 24px;
+    height: 20px;
+    color: var(--brand);
+    flex-shrink: 0;
+}
+
+.rooms-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: calc(var(--radius) + 4px);
+    box-shadow: var(--shadow);
+    padding: clamp(24px, 4vw, 42px);
+}
+
+.rooms-container > h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+    margin-bottom: 22px;
+    color: #2f2b23;
+    text-align: center;
+}
+
+.rooms-card {
+    margin-top: 12px;
+}
+
+.rooms-card h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin: 8px 0 6px;
+    color: #2f2b23;
+    text-align: center;
+}
+
+.rooms-image {
+    background: linear-gradient(165deg, #fffdf8, #f4e8d2);
+    border-radius: 16px;
+    padding: 0;
+}
+
+.rooms-image img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+}
+
+.rooms-image h3 {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 12px 10px 6px;
+    margin-top: 10px;
+}
+
+.reserva-card {
+    max-width: 780px;
+    margin: 0 auto;
+    background: linear-gradient(165deg, rgba(255, 252, 245, 0.98), rgba(245, 235, 214, 0.95));
+    border: 1px solid rgba(134, 93, 47, 0.3);
+    border-radius: calc(var(--radius) + 6px);
+    box-shadow: var(--shadow);
+    padding: clamp(24px, 5vw, 46px);
+    animation: rise 0.9s ease both; 
+}
+
+.reserva-card textarea {
+    min-height: 100px;
+}
+
+.reserva-container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.reserva-container .col-md-4 h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: #2f2b23;
+    line-height: 1.05;
+    margin-bottom: 12px;
+}
+
+.reserva-container .col-md-4 p {
+    color: var(--muted);
+    max-width: 42ch;
+    margin-bottom: 0;
+}
+
+.reserva-card h3 {
+    margin: 14px 0 6px;
+    font-size: 0.92rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand-deep);
+}
+
+.reserva-card input {
+    width: 100%;
+    border: 1px solid #ccb792;
+    border-radius: 11px;
+    padding: 12px 14px;
+    background: #fffdf8;
+    color: #2d2a22;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.98rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reserva-card textarea,
+.reserva-card .form-control {
+    border: 1px solid #ccb792;
+    border-radius: 11px;
+    background: #fffdf8;
+    color: #2d2a22;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.98rem;
+}
+
+.reserva-card label {
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--brand-deep);
+    margin-bottom: 6px;
+}
+
+.reserva-card input:focus {
+    outline: none;
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(184, 132, 70, 0.2);
+}
+
+.reserva-card textarea:focus,
+.reserva-card .form-control:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px rgba(184, 132, 70, 0.2);
+}
+
+.reserva-card input.is-invalid {
+    border-color: #b03e2e;
+}
+
+.reserva-card input.is-valid {
+    border-color: #2f7f5b;
+}
+
+.reserva-card button {
+    margin-top: 20px;
+    width: auto;
+    min-width: 170px;
+}
+
+.form-feedback {
+    margin-top: 14px;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+}
+
+.form-feedback.error {
+    color: #7f2f22;
+    background: #f7dfdb;
+    border: 1px solid #d4a9a1;
+}
+
+.form-feedback.success {
+    color: #24523d;
+    background: #deefe6;
+    border: 1px solid #9ec7b2;
+}
+
+.reveal-item {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    padding: 26px 18px 34px;
+    text-align: center;
+    color: #4e4b43;
+    font-size: 0.93rem;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(26px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
