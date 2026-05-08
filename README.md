@@ -1,6 +1,6 @@
 # 🏨 Solaris Hotel
 
-Projeto de site de um hotel fictício, desenvolvido com foco em design moderno, responsividade e organização de código.
+Projeto de site de um hotel fictício, desenvolvido com foco em design moderno, responsividade e organização de código com integração de API simulada usando JSON Server.
 
 ---
 
@@ -11,10 +11,11 @@ O **Solaris Hotel** é uma landing page que apresenta:
 - Destaque principal
 - Benefícios do hotel
 - Tipos de quartos
-- Formulário de reserva
+- Formulário de reserva funcional
 - Layout elegante e responsivo
+- Integração com API simulada (JSON Server)
 
-O objetivo foi aplicar conceitos de **HTML, CSS e Bootstrap**, indo além do básico solicitado.
+O objetivo foi aplicar conceitos de **HTML, CSS, JS, Bootstrap e JSON Server** evoluindo o projeto com consumo e manipulação de dados via API.
 
 ---
 
@@ -22,7 +23,9 @@ O objetivo foi aplicar conceitos de **HTML, CSS e Bootstrap**, indo além do bá
 
 - HTML5  
 - CSS3  
-- Bootstrap 5  
+- Bootstrap 5
+- JavaScript
+- JSON Server (API fake REST)
 
 ---
 
@@ -34,6 +37,16 @@ O design foi inspirado em sites modernos de hotelaria, com foco em:
 - Paleta de cores sofisticada
 - Uso de sombras e bordas suaves
 - Boa hierarquia visual
+
+---
+
+## ⚙️ Funcionalidades
+
+- Cadastro de reservas via formulário
+- Envio de dados para API simulada (JSON Server)
+- Listagem/consulta de reservas
+- Feedback ao enviar reserva
+- Estrutura preparada para expansão futura
 
 ---
 
@@ -49,7 +62,7 @@ O site se adapta para diferentes tamanhos de tela:
 
 ## 📂 Estrutura do projeto
 
-![Print](img/preview-estrutura-projeto.png)
+![Print](assets/img/preview-estrutura-projeto.png)
 
 ---
 
