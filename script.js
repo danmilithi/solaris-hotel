@@ -80,24 +80,39 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	if (reservaForm && submitBtn) {
-		reservaForm.addEventListener("submit", (event) => {
-			event.preventDefault();
-			const formularioValido = validarFormulario();
+	reservaForm.addEventListener("submit", async (event) => {
+		event.preventDefault();
+		const formularioValido = validarFormulario();
 
-			if (!formularioValido) {
-				mostrarFeedback("Preencha os campos obrigatórios para concluir sua reserva.", "error");
-				return;
+		if (!formularioValido) {
+			mostrarFeedback("Preencha os campos obrigatórios para concluir sua reserva.", "error");
+			return;
+		}
+
+		const reserva = {
+			nome: nomeInput.value,
+			email: emailInput.value,
+			entrada: dataEntradaInput.value,
+			saida: dataSaidaInput.value,
+			observacoes: observacaoInput.value,
+			adultos: adultosInput.value,
+			criancas: criancasInput.value
+		};
+
+		try {
+			const resposta = await fetch("http://localhost:3000/reservas", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(reserva)
+			});
+
+			if (!resposta.ok) {
+				throw new Error("Erro ao salvar reserva");
 			}
 
-			const adultos = Number(adultosInput.value);
-			const criancas = Number(criancasInput.value);
-			const totalHospedes = adultos + criancas;
-			const observacao = observacaoInput && observacaoInput.value.trim() ? ` Observações: ${observacaoInput.value.trim()}.` : "";
-
-			mostrarFeedback(
-				`Reserva confirmada. Período: ${dataEntradaInput.value} a ${dataSaidaInput.value}. Total de hóspedes: ${totalHospedes}.${observacao}`,
-				"success"
-			);
+			mostrarFeedback("Reserva enviada com sucesso!", "success");
 
 			if (reservaForm instanceof HTMLFormElement) {
 				reservaForm.reset();
@@ -112,8 +127,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (dataSaidaInput) {
 				dataSaidaInput.min = hoje;
 			}
-		});
-	}
+		} catch (erro) {
+			mostrarFeedback("Erro ao enviar reserva.", "error");
+		}
+	});
+}
 
 	const revealItems = document.querySelectorAll(".info-item, .rooms-image, .reserva-card");
 	revealItems.forEach((item) => {
