@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (reservaForm && submitBtn) {
 	reservaForm.addEventListener("submit", async (event) => {
 		event.preventDefault();
+
 		const formularioValido = validarFormulario();
 
 		if (!formularioValido) {
@@ -90,13 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		const reserva = {
-			nome: nomeInput.value,
-			email: emailInput.value,
-			entrada: dataEntradaInput.value,
-			saida: dataSaidaInput.value,
-			observacoes: observacaoInput.value,
-			adultos: adultosInput.value,
-			criancas: criancasInput.value
+			nome: nomeInput?.value || "",
+			email: emailInput?.value || "",
+			entrada: dataEntradaInput?.value || "",
+			saida: dataSaidaInput?.value || "",
+			observacoes: observacaoInput?.value || "",
+			adultos: Number(adultosInput?.value || 0),
+			criancas: Number(criancasInput?.value || 0)
 		};
 
 		try {
@@ -108,15 +109,20 @@ document.addEventListener("DOMContentLoaded", () => {
 				body: JSON.stringify(reserva)
 			});
 
+			const data = await resposta.json();
+
 			if (!resposta.ok) {
+				console.log("Erro do servidor:", data);
 				throw new Error("Erro ao salvar reserva");
 			}
 
 			mostrarFeedback("Reserva enviada com sucesso!", "success");
 
-			if (reservaForm instanceof HTMLFormElement) {
-				reservaForm.reset();
-			}
+			setTimeout(() => {
+				window.location.href = `confirmacao.html?id=${data.id}`;
+			}, 3000);
+
+			reservaForm.reset();
 
 			[nomeInput, emailInput, dataEntradaInput, dataSaidaInput, adultosInput, criancasInput].forEach((campo) => {
 				if (campo) {
@@ -127,7 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			if (dataSaidaInput) {
 				dataSaidaInput.min = hoje;
 			}
+
 		} catch (erro) {
+			console.log("ERRO REAL:", erro);
 			mostrarFeedback("Erro ao enviar reserva.", "error");
 		}
 	});
