@@ -1,0 +1,24 @@
+{
+  "name": "solaris",
+  "version": "1.0.0",
+  "description": "Projeto de site de um hotel fictício, desenvolvido com foco em design moderno, responsividade e organização de código.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danmilithi/solaris-hotel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/danmilithi/solaris-hotel/issues"
+  },
+  "homepage": "https://github.com/danmilithi/solaris-hotel#readme",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.15"
+  }
+}
