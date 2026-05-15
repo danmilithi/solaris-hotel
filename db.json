@@ -1,3 +1,15 @@
 {
-  "reservas": []
+  "reservas": [
+    {
+      "nome": "Daniel Viana Melchichi",
+      "email": "eudanielviana2@gmail.com",
+      "entrada": "2026-05-08",
+      "saida": "2026-05-11",
+      "observacoes": "1 cama a mais.",
+      "adultos": 2,
+      "criancas": 1,
+      "id": "lqluOsYUfBo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
